@@ -3,6 +3,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -17,19 +18,36 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
-  var i;
   var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
   if (n > slides.length) {slideIndex = 1} 
   if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
+  for (var i = 0; i < slides.length; i++) {
       slides[i].style.display = "none"; 
   }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
   slides[slideIndex-1].style.display = "block"; 
-  dots[slideIndex-1].className += " active";
+}
+
+var slideIndex2 = 1;
+showSlides2(slideIndex2);
+
+// Next/previous controls
+function plusSlides2(n) {
+  showSlides2(slideIndex2 += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides2(slideIndex2 = n);
+}
+
+function showSlides2(n) {
+  var slides = document.getElementsByClassName("mySlides2");
+  if (n > slides.length) {slideIndex2 = 1} 
+  if (n < 1) {slideIndex2 = slides.length}
+  for (var i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none"; 
+  }
+  slides[slideIndex2-1].style.display = "block"; 
 }
 
 
@@ -426,5 +444,4 @@ function showSlides(n) {
 					$window.on('load', function() {
 						$main._show(location.hash.substr(1), true);
 					});
-
 })(jQuery);
